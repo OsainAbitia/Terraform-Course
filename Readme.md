@@ -178,7 +178,7 @@ La diferencia entre estos 2 es que, si nosotros ejecutamos el código procedural
 
 Elementos de Packer:
 
-```JSON
+```
 {
     // Esta sección nos permite definir variables a utilizar
     // por ejemplo, variables de entorno
@@ -193,7 +193,7 @@ Elementos de Packer:
         }
     ],
     // Seccion para personalizar y agregar caracteristicas
-    // nuestra imagen base
+    //  a nuestra imagen base
     "provisioners": [
         {
             "type": "shell",
@@ -218,7 +218,7 @@ Es momento de comenzar con la práctica, recuerda comenzar la descarga de Packer
 
 Para descargar Terraform accede a este [link](https://www.terraform.io/downloads) y sigue los mismos pasos para la instalacion de Packer de hace un momento.
 
-Por último, puedes validar las instalaciones de Packer y Terrraform con `packer --version` y `terraform --version`
+Por último, puedes validar las instalaciones de Packer y Terrraform con `packer --version` y `terraform --version` respectivamente.
 
 Con esto, estamos listos para avanzar!
 
@@ -230,7 +230,7 @@ Una vez tengas tu cuenta y puedas acceder a ella, busca el servicio de IAM, dent
 
 ![Creación de usuario](https://i.imgur.com/NLTW0No.png)
 
-Coloca el nombre que desees, por ejemplo tu nombre y selecciona las opciones de Acceso mediante programación y Acceso a la consola e administración, esto nos brindara nuestras access keys.
+Coloca el nombre que desees, por ejemplo tu nombre y selecciona las opciones de Acceso mediante programación y Acceso a la consola de administración, esto nos brindara nuestras access keys.
 
 ![Establecer detalles del usuario](https://i.imgur.com/kYixyld.png)
 
@@ -241,3 +241,9 @@ Después de colocar tu contraseña, otorga a tu usuario permisos de administrado
 Como resultado de estos pasos, obtendrás tus Access Keys, recuerda **JAMÁS JAMÁS JAMÁS JAMÁS** compartir estas llaves, ni colocarlas en un repositorio público.
 
 Por último, asegurate de contar con el AWS CLI instalado y configurado, puedes obtener más información de este último paso en [este enlace](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
+
+## Capítulo 9 - Packer: Demo 🚀
+
+Para este demo obtendremos una AMI montanda sobre una imagen Centos como base, e instalaremos docker de forma automática dentro de ella, en de la carpeta [DEMO-PACKER](./DEMO-PACKER) encontrarás los pasos a seguir.
+
+Recuerda acudir a lecturas pasadas para la instalación correcta de Packer en Windos, o bien, [aquí está el link](https://learn.hashicorp.com/tutorials/packer/get-started-install-cli) con las instrucciones para instalar Packer en los distintos sistemas operativos.
