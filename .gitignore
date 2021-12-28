@@ -1,0 +1,5 @@
+# Ignore all our keys
+*.pub
+
+# Terraform generated files
+*.terraform
