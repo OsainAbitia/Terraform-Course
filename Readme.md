@@ -247,3 +247,37 @@ Por último, asegurate de contar con el AWS CLI instalado y configurado, puedes 
 Para este demo obtendremos una AMI montanda sobre una imagen Centos como base, e instalaremos docker de forma automática dentro de ella, en de la carpeta [DEMO-PACKER](./DEMO-PACKER) encontrarás los pasos a seguir.
 
 Recuerda acudir a lecturas pasadas para la instalación correcta de Packer en Windos, o bien, [aquí está el link](https://learn.hashicorp.com/tutorials/packer/get-started-install-cli) con las instrucciones para instalar Packer en los distintos sistemas operativos.
+
+## Capítulo 10 - Docker: Conceptos clave 🚀
+
+[Docker](https://www.docker.com/) es una herramienta que nos permite crear infraestructura inmutable permitiéndonos encapsular y portar nuestras aplicaciones en una misma imagen logrando que instanciemos la misma imagen la cantidad de veces que queramos.
+
+### Imagen
+
+Es una capa creada a partir de un archivo Dockerfile donde definimos la imagen base, todos los paquetes que vayamos a utilizar, directorios, etc.
+
+### Container
+
+Un container es una instancia de una imagen de Docker. No tienen estado, no deben guardar ningún tipo de información.
+
+### Ejemplo de archivo de definición
+
+```Dockerfile
+# Super simple example of  a Dockerfile
+FROM ubuntu:latest # Imagen base
+MAINTAINER Andrew Garfield "andrew@peter3.com" # Encargado
+
+RUN apt-get update # RUN ejecuta comandos dentro del container
+RUN apt-get install -y python python-pip wget
+RUN pip install Flask
+
+ADD hello.py /home/hello.py # Copiar archivos de local a container
+
+WORKDIR /home # Indicar el directoriod de trabajo
+
+ENTRYPOINT ["/home/hello.py"] # Acción a realizar una vez el container se levante
+```
+
+## Capítulo 11 - Docker: Demo 🚀
+
+En este capítulo relizaremos la creación de un contenedor desde nuestro propio archivo de definición y cambiaremos la configuración de nginx dentro del mismo, recuerda verificar tu instalación de Docker, te veo en [Docker Demo](./docker-demo)
