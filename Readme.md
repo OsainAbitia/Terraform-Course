@@ -216,7 +216,12 @@ Elementos de Packer:
 
 Es momento de comenzar con la práctica, recuerda comenzar la descarga de Packer desde [aquí](https://learn.hashicorp.com/tutorials/packer/get-started-install-cli), después de descargarlo, asegurate de descomprimirlo y colocarlo en algún lugar como `C:\Program Files\Packer` y posteriormente registrarlo dentro de tus variables de entorno.
 
+<<<<<<< HEAD
 Para descargar Terraform accede a este [link](https://www.terraform.io/downloads) y sigue los mismos pasos para la definición de variables de entorno como en Packer hace un momento.
+=======
+Para descargar Terraform accede a este [link](https://www.terraform.io/downloads) y sigue los mismos pasos para la instalacion de Packer de hace un momento.
+
+> > > > > > > 2c8adb4b2695c22701e5ab0e3b9ad1e7e9777b65
 
 Por último, puedes validar las instalaciones de Packer y Terrraform con `packer --version` y `terraform --version` respectivamente.
 
