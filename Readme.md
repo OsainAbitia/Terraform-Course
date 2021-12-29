@@ -216,12 +216,7 @@ Elementos de Packer:
 
 Es momento de comenzar con la práctica, recuerda comenzar la descarga de Packer desde [aquí](https://learn.hashicorp.com/tutorials/packer/get-started-install-cli), después de descargarlo, asegurate de descomprimirlo y colocarlo en algún lugar como `C:\Program Files\Packer` y posteriormente registrarlo dentro de tus variables de entorno.
 
-<<<<<<< HEAD
 Para descargar Terraform accede a este [link](https://www.terraform.io/downloads) y sigue los mismos pasos para la definición de variables de entorno como en Packer hace un momento.
-=======
-Para descargar Terraform accede a este [link](https://www.terraform.io/downloads) y sigue los mismos pasos para la instalacion de Packer de hace un momento.
-
-> > > > > > > 2c8adb4b2695c22701e5ab0e3b9ad1e7e9777b65
 
 Por último, puedes validar las instalaciones de Packer y Terrraform con `packer --version` y `terraform --version` respectivamente.
 
@@ -317,3 +312,19 @@ Terraform nos permite usar variables de tipo String, List y Map. A cada variable
 El archivo donde asignamos los valores de las variables debe terminar en .tfvars.
 
 [Entra al capítulo de terraform práctica 2](./terraform-practica-2)
+
+## Capítulo 15 - Interpolación, condiciones y ciclos 🚀
+
+En este capítulo profundiazremos dentro de conceptos y bondades que terraform tiene para ofrecernos, dentro de [la práctica 3](./terraform-practica-3) podrás ver más al respecto.
+
+## Capítulo 16 - Archivos de estados 🚀
+
+Como habrás notado, durante estas prácticas se crearon algunos archivos extra, repasémoslos:
+
+_El directorio `.terraform`_ es creado cuando ejecutamos por primera vez `terraform init`.
+
+_El archivo `terraform.tfstate`_ es creado cuando ejecutamos por primera vez `terraform apply` y guarda el estado. Cuando el archivo ya existe, y atualizamos la infraestructura con `terraform apply` o `terraform destroy` el archivo guardara el último estado sustituyendo al anterior.
+
+_El archivo `terraform.tfstate.backup`_ es creado cuando tenemos un primer estado `terraform.tfstate` y aplicamos una modificación con `apply` o `destroy` entonces el estado de `terraform.tfstate` se convierte en `terraform.tfstate.backup`.
+
+Ahora cada vez que apliques los cambios de la configuracion estos pasarán a estar en el estado `terraform.tfstate` y el anterior estado estara en `terraform.tfstate.backup`
