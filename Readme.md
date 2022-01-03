@@ -328,3 +328,22 @@ _El archivo `terraform.tfstate`_ es creado cuando ejecutamos por primera vez `te
 _El archivo `terraform.tfstate.backup`_ es creado cuando tenemos un primer estado `terraform.tfstate` y aplicamos una modificación con `apply` o `destroy` entonces el estado de `terraform.tfstate` se convierte en `terraform.tfstate.backup`.
 
 Ahora cada vez que apliques los cambios de la configuracion estos pasarán a estar en el estado `terraform.tfstate` y el anterior estado estara en `terraform.tfstate.backup`
+
+## Capítulo 17 - Archivos de Backends 🚀
+
+Terraform permite almacenar el estado de manera remota a través de Backends. Podemos almacenarlo en diferentes servicios de storage en la nube como S3 o Azure.
+
+Entre sus muchas ventajas que trae el trabajar con backends son:
+
+- Es más fácil trabajar en equipo.
+- Facilita la integración continua.
+- Mayor disponibilidad.
+
+En los siguientes links puedes encontrar más información sibre los backends:
+
+1. https://www.terraform.io/language/settings/backends
+2. https://www.terraform.io/language/settings/backends/s3
+
+## Capítulo 19 - Creación de nuestro Backend con Terraform 🚀
+
+Con el fin de conocer a profundidad el concepto de backend dentro de AWS, crearemos un bucket de s3 con la [práctica 4](./terraform-practica-4)
