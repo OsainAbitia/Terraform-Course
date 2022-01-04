@@ -344,6 +344,22 @@ En los siguientes links puedes encontrar más información sibre los backends:
 1. https://www.terraform.io/language/settings/backends
 2. https://www.terraform.io/language/settings/backends/s3
 
-## Capítulo 19 - Creación de nuestro Backend con Terraform 🚀
+## Capítulo 19 - Creación y encriptación de nuestro Backend con Terraform 🚀
 
 Con el fin de conocer a profundidad el concepto de backend dentro de AWS, crearemos un bucket de s3 con la [práctica 4](./terraform-practica-4)
+
+## Capítulo 20 - Tips de la vida real: Trabajo en equipo con backends 🚀
+
+Recurda:
+
+- Es una buena práctica tener el archivo de estado almacenado y versionado en algún Cloud Provider.
+- Encriptar nuestro archivo de estado.
+- Versionar nuestro backend.
+
+Así como es importante mantener nuestro código en versiones, también lo es mantener nuestros archivos de estado y backend versionados, para esto, es necesaro habilitar el versionamiento dentro de nuestro bucket con el siguiente parametro dentro de nuestro s3:
+
+```
+versioning {
+    enabled = true
+  }
+```
