@@ -137,7 +137,7 @@ Características clave de terraform
 
 ### Gestión de configuraciones vs definición de infraestructura
 
-El _crear_ infraestrucutura y el _gestionar_ infraestructura son 2 cosas diferentes, existen herramientas como [Ansible]() que nos permiten configurar nuestra infraestructura y a la vez definirla, sin embargo, este último no es su principal función. Por esta razón, es normal utilizar herramientas como Ansible y terraform en conjunto para crear y configurar la infraestructura.
+El _crear_ infraestrucutura y el _gestionar_ infraestructura son 2 cosas diferentes, existen herramientas como [Ansible](https://www.ansible.com/) que nos permiten configurar nuestra infraestructura y a la vez definirla, sin embargo, este último no es su principal función. Por esta razón, es normal utilizar herramientas como Ansible y terraform en conjunto para crear y configurar la infraestructura.
 
 ### Infraestructura mutable vs Infraestructura inmutable
 
@@ -363,3 +363,56 @@ versioning {
     enabled = true
   }
 ```
+
+Más información de Terraform CLI https://www.terraform.io/cli
+
+## Capítulo 20 - Tips de la vida real: Trabajo en equipo con backends 🚀
+
+Así como en lenguajes de programación contamos con librerías, en Terraform podemos separar nuestro código y reutilizarlo a través de módulos. Dentro de nuestro módulo vamos a añadir el archivo de configuración y el de definición de variables.
+
+[Dentro de la práctica 5](./terraform-practica-5) podrás encontrar más información al respecto.
+
+## Capítulo 21 - Provisioners 🚀
+
+Terraform también nos permite realzar acciones en nuestros recursos una vez han sido creados, es aquí donde los provisioners suelen ayudarnos, los provisioners pueden ser usados para modelar acciones específicas en la maquína local como en la maquína remota, con el fin de preparar servidores u otra infraestructura en servicio.
+
+Un ejemplo sencillo puede ser el enviar un archivo local como un index, a nuestro servidor dentro de AWS:
+
+```
+resource "aws_instance" "web" {
+  # ...
+
+  # Copies the myapp.conf file to /etc/myapp.conf
+  provisioner "file" {
+    source      = "conf/myapp.conf"
+    destination = "/etc/myapp.conf"
+  }
+
+  # Copies the string in content into /tmp/file.log
+  provisioner "file" {
+    content     = "ami used: ${self.ami}"
+    destination = "/tmp/file.log"
+  }
+
+  # Copies the configs.d folder to /etc/configs.d
+  provisioner "file" {
+    source      = "conf/configs.d"
+    destination = "/etc"
+  }
+
+  # Copies all files and folders in apps/app1 to D:/IIS/webapp1
+  provisioner "file" {
+    source      = "apps/app1/"
+    destination = "D:/IIS/webapp1"
+  }
+}
+
+```
+
+Visita el siguiente link para descubrir que más puedes realizar con [provisioners](https://www.terraform.io/language/resources/provisioners) de Terraform.
+
+# Conclusión
+
+Bien, estos han sido algunos de los conceptos y ejemplos necesarios que pueden ayudarte para comenzar a trabajar con terraform.
+
+Si deseas, puedes continuar revisando las certificaciones de terraform que Hashicorp ofrece, siempre es buena idea seguir aprendiendo, espero este repositorio te sea útil, buena suerte en lo que decidas hacer, keep learning!
