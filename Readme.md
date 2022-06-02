@@ -407,6 +407,7 @@ resource "aws_instance" "web" {
   }
 }
 
+
 ```
 
 Visita el siguiente link para descubrir que más puedes realizar con [provisioners](https://www.terraform.io/language/resources/provisioners) de Terraform.
